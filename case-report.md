@@ -524,4 +524,13 @@ grep 명령어를 이용한 관련 내역 검색.
 길고 자세하게, 직접 닫는 명령어 사용 필요.
 fin
 
+
+결론:
+minho가 파일 이름 정리 도중 final_report를 삭제한 것으로 보입니다.
+상기 검색 결과의
+./evidence/access.log:30:2026-05-20 08:56:01 INFO POST /file/action 200 user=minho target=final_report.md result=removed
+가 가장 중요한 단서입니다.
+실수인지 고의였는지는 확실히 알 수 없습니다.
+
+
 이상입니다.
