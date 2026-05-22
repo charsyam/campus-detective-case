@@ -397,3 +397,20 @@ workspace/evidence/file-events.log:30:2026-05-20 08:59:10 OPEN project/draft_rep
   136  grep -n "final_report" case-report.md
   137  echo "## 8. 오늘 사용한 멸령어" >> case-report.md
   138  history | tail >> case-report.md
+## Appendix. 추가 분석
+### 사용자별 활동량
+      3 user=admin
+     23 user=jimin
+     18 user=minho
+     20 user=sora
+      4 user=system
+### final_report 사건 흐름
+evidence/access.log:30:2026-05-20 08:56:01 INFO POST /file/action 200 user=minho target=final_report.md result=removed
+evidence/file-events.log:6:2026-05-20 08:44:12 UPLOAD project/assets/screen-main.png user=sora
+evidence/file-events.log:12:2026-05-20 08:50:07 UPLOAD project/assets/team-photo.png user=sora
+evidence/file-events.log:14:2026-05-20 08:51:02 UPLOAD project/final_report.md user=sora
+evidence/file-events.log:24:2026-05-20 08:56:01 FILE_EVENT target=project/final_report.md user=minho action=cleanup result=removed
+evidence/file-events.log:25:2026-05-20 08:56:18 CHECK project/final_report.md user=sora status=missing
+evidence/file-events.log:26:2026-05-20 08:57:02 CHECK project/final_report.md user=jimin status=missing
+evidence/file-events.log:28:2026-05-20 08:58:03 CHECK submit/status user=sora status=missing_final_report
+evidence/file-events.log:29:2026-05-20 08:58:20 RESTORE project/final_report.md user=admin source=backup
