@@ -454,3 +454,21 @@ unknown 검색 결과 없음
 file-events.log의 removed 기록과 chat.log의 대화 기록을 보면
 final_report.md는 마감 직전에 삭제된 것으로 보인다.
 가장 중요한 단서는 file-events.log의 result=removed 줄이다.
+
+## Appendix. 추가 분석
+### 사용자별 활동량
+      3 user=admin
+     23 user=jimin
+     18 user=minho
+     20 user=sora
+      4 user=system
+### final_report 사건 흐름
+evidence/access.log:30:2026-05-20 08:56:01 INFO POST /file/action 200 user=minho target=final_report.md result=removed
+evidence/file-events.log:6:2026-05-20 08:44:12 UPLOAD project/assets/screen-main.png user=sora
+evidence/file-events.log:12:2026-05-20 08:50:07 UPLOAD project/assets/team-photo.png user=sora
+evidence/file-events.log:14:2026-05-20 08:51:02 UPLOAD project/final_report.md user=sora
+evidence/file-events.log:24:2026-05-20 08:56:01 FILE_EVENT target=project/final_report.md user=minho action=cleanup result=removed
+evidence/file-events.log:25:2026-05-20 08:56:18 CHECK project/final_report.md user=sora status=missing
+evidence/file-events.log:26:2026-05-20 08:57:02 CHECK project/final_report.md user=jimin status=missing
+evidence/file-events.log:28:2026-05-20 08:58:03 CHECK submit/status user=sora status=missing_final_report
+evidence/file-events.log:29:2026-05-20 08:58:20 RESTORE project/final_report.md user=admin source=backup
